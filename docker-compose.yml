@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  onstore:
+    build: .
+    container_name: onstore
+    ports:
+      - "19006:19006"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - EXPO_WEB_PORT=19006
+    command: npm run web
