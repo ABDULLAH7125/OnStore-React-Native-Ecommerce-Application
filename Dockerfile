@@ -1,5 +1,6 @@
 # Use official Node LTS image
-FROM node:16
+FROM node:16slim
+
 
 # Set working directory
 WORKDIR /app
