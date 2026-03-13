@@ -1,20 +1,17 @@
-# Use official Node LTS image
-FROM node:16-alpine
+FROM node:18-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (if exists)
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy the rest of the project
+# install expo cli
+RUN npm install -g expo-cli
+
 COPY . .
 
-# Expose port for Expo web
 EXPOSE 19006
+EXPOSE 8081
 
-# Start Expo in web mode
-CMD ["npm", "run", "web"]
+CMD ["npx","expo","start","--web"]
